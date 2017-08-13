@@ -50,7 +50,12 @@ class AlbumsController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
-        let url = URL(string: "https://graph.facebook.com/v2.10/\(albums[indexPath.row].id)/picture?type=thumbnail&access_token=\(token!)")!
+        guard let token = AccessToken.current?.authenticationToken,
+            let url = URL(string: "https://graph.facebook.com/v2.10/\(albums[indexPath.row].id)/picture?type=thumbnail&access_token=\(token)")
+            else {
+                return UITableViewCell()
+        }
+        
         cell.imageView?.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
         cell.imageView?.contentMode = .center
         

@@ -12,14 +12,14 @@ import FacebookCore
 class ContentView: UITableViewController {
     
     var album: Album?
-    var token: String?
+    var token: String!
     var pictures: [Picture] = [Picture]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        token = AccessToken.current?.authenticationToken
+        guard let albumID = album?.id else {return}
         
-        GraphRequest(graphPath: "/\((album?.id)!)/photos", parameters: ["fields":"id,name,picture"], httpMethod: GraphRequestHTTPMethod(rawValue: "GET")!)
+        GraphRequest(graphPath: "/\(albumID)/photos", parameters: ["fields":"id,name,picture"], httpMethod: GraphRequestHTTPMethod(rawValue: "GET")!)
             .start({  connection, g_response in
                 print(g_response)
                 switch g_response{
@@ -49,7 +49,12 @@ class ContentView: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "picture")
         
-        let url = URL(string: "https://graph.facebook.com/v2.10/\(pictures[indexPath.row].id)/picture?type=thumbnail&access_token=\(token!)")!
+        guard let token = AccessToken.current?.authenticationToken,
+            let url = URL(string: "https://graph.facebook.com/v2.10/\(pictures[indexPath.row].id)/picture?type=thumbnail&access_token=\(token)")
+            else {
+                return UITableViewCell()
+            }
+        
         cell.imageView?.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
         cell.imageView?.contentMode = .center
         
