@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E09F7341F40607B000E8DBE /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E09F7331F40607B000E8DBE /* AlbumCell.swift */; };
+		3E09F7381F406141000E8DBE /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E09F7371F406141000E8DBE /* AlbumCell.xib */; };
 		3EC9D9381F3912E900CD459B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9D9371F3912E900CD459B /* AppDelegate.swift */; };
 		3EC9D93A1F3912E900CD459B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9D9391F3912E900CD459B /* ViewController.swift */; };
 		3EC9D93D1F3912E900CD459B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9D93B1F3912E900CD459B /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 /* Begin PBXFileReference section */
 		2FF1FEB9E6EA4697373E0115 /* Pods-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.release.xcconfig"; path = "Pods/Target Support Files/Pods-test/Pods-test.release.xcconfig"; sourceTree = "<group>"; };
 		34219419CC67A24BE463E2EF /* Pods_testUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E09F7331F40607B000E8DBE /* AlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		3E09F7371F406141000E8DBE /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		3EC9D9341F3912E900CD459B /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC9D9371F3912E900CD459B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EC9D9391F3912E900CD459B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3E09F7351F4060A9000E8DBE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3EC9D93B1F3912E900CD459B /* Main.storyboard */,
+				3EC9D9401F3912E900CD459B /* LaunchScreen.storyboard */,
+				3E09F7371F406141000E8DBE /* AlbumCell.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		3EC9D92B1F3912E900CD459B = {
 			isa = PBXGroup;
 			children = (
@@ -135,12 +149,12 @@
 		3EC9D9361F3912E900CD459B /* test */ = {
 			isa = PBXGroup;
 			children = (
+				3E09F7351F4060A9000E8DBE /* UI */,
 				3EC9D9671F3926BD00CD459B /* ViewControllers */,
 				3EC9D96A1F39360100CD459B /* test.entitlements */,
 				3EC9D9371F3912E900CD459B /* AppDelegate.swift */,
-				3EC9D93B1F3912E900CD459B /* Main.storyboard */,
+				3E09F7331F40607B000E8DBE /* AlbumCell.swift */,
 				3EC9D93E1F3912E900CD459B /* Assets.xcassets */,
-				3EC9D9401F3912E900CD459B /* LaunchScreen.storyboard */,
 				3EC9D9431F3912E900CD459B /* Info.plist */,
 				3EC9D9681F392C6C00CD459B /* Album.swift */,
 				3EC9D96D1F39D70A00CD459B /* Picture.swift */,
@@ -315,6 +329,7 @@
 				3EC9D9421F3912E900CD459B /* LaunchScreen.storyboard in Resources */,
 				3EC9D93F1F3912E900CD459B /* Assets.xcassets in Resources */,
 				3EC9D93D1F3912E900CD459B /* Main.storyboard in Resources */,
+				3E09F7381F406141000E8DBE /* AlbumCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +495,7 @@
 				3EC9D96E1F39D70A00CD459B /* Picture.swift in Sources */,
 				3EC9D93A1F3912E900CD459B /* ViewController.swift in Sources */,
 				3EC9D96C1F39C69600CD459B /* ContentView.swift in Sources */,
+				3E09F7341F40607B000E8DBE /* AlbumCell.swift in Sources */,
 				3EC9D9381F3912E900CD459B /* AppDelegate.swift in Sources */,
 				3EC9D9701F39DD8B00CD459B /* PictureView.swift in Sources */,
 				3EC9D9691F392C6C00CD459B /* Album.swift in Sources */,

@@ -37,6 +37,9 @@ class AlbumsController: UITableViewController{
                     break
                 }
         })
+        
+        tableView.register(UINib(nibName: "AlbumCell", bundle: nil), forCellReuseIdentifier: "AlbumCell")
+
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,7 +51,7 @@ class AlbumsController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as! AlbumCell
         
         guard let token = AccessToken.current?.authenticationToken,
             let url = URL(string: "https://graph.facebook.com/v2.10/\(albums[indexPath.row].id)/picture?type=thumbnail&access_token=\(token)")
@@ -56,10 +59,10 @@ class AlbumsController: UITableViewController{
                 return UITableViewCell()
         }
         
-        cell.imageView?.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
-        cell.imageView?.contentMode = .center
+        cell.thumbnail?.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
+        cell.thumbnail?.contentMode = .center
         
-        cell.textLabel?.text = albums[indexPath.row].name
+        cell.label?.text = albums[indexPath.row].name
         return cell
     }
     
